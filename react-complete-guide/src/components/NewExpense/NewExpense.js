@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 
 import ExpenseForm from "./ExpenseForm";
 import "./NewExpense.css";
 
 function NewExpense(props) {
+  const [visibleAddExpenseButton, setVisibleAddExpenseButton] = useState(true);
   const saveExpenseDataHandler = enteredExpenseData => {
     const expenseData = {
       ...enteredExpenseData,
@@ -11,11 +12,24 @@ function NewExpense(props) {
     };
     props.onAddExpense(expenseData);
   };
-  return (
-    <div className="new-expense">
-      <ExpenseForm onSaveExpenseData={saveExpenseDataHandler} />
-    </div>
+  const visibleAddExpenseButtonHandler = () => {
+    setVisibleAddExpenseButton(prevState => {
+      return !prevState;
+    });
+  };
+  let addExpenseContent = (
+    <button onClick={visibleAddExpenseButtonHandler}>결제 추가하기</button>
   );
+  if (!visibleAddExpenseButton) {
+    addExpenseContent = (
+      <ExpenseForm
+        onSaveExpenseData={saveExpenseDataHandler}
+        onVisibleAddExpenseButton={visibleAddExpenseButtonHandler}
+      />
+    );
+  }
+
+  return <div className="new-expense">{addExpenseContent}</div>;
 }
 
 export default NewExpense;
