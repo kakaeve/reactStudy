@@ -3,12 +3,12 @@ import React from "react";
 import styles from "./AddUserInput.module.css";
 
 function AddUserInput(props) {
-  const { labelName } = props;
+  const { labelName, id } = props;
 
   return (
-    <div className={styles.input}>
-      <label>{labelName}</label>
-      <input />
+    <div>
+      <label htmlFor={id}>{labelName}</label>
+      <input id={id} type={props.inputType} />
     </div>
   );
 }

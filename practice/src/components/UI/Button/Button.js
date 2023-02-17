@@ -2,11 +2,13 @@ import React from "react";
 import styles from "./Button.module.css";
 
 function Button(props) {
-  console.log(styles);
-  console.log(props.buttonName);
   return (
-    <button type={props.buttonType} className={styles.button}>
-      {props.buttonName}
+    <button
+      type={props.buttonType || "button"}
+      className={styles.button}
+      onClick={props.onClick}
+    >
+      {props.children}
     </button>
   );
 }

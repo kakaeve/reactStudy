@@ -2,22 +2,20 @@ import React, { useState } from "react";
 
 import Card from "../../UI/Card/Card";
 import styles from "./UserList.module.css";
-import UserListItem from "./UserListItem";
 
 function UserList(props) {
-  let needRenderUserList = [];
-
   const { userList } = props;
   if (userList.length === 0) {
     return;
   }
-  console.log(userList);
 
   return (
-    <Card>
-      <ul className={styles.users}>
+    <Card className={styles.users}>
+      <ul>
         {userList.map(user => (
-          <UserListItem user={user} />
+          <li key={user.key}>
+            이름: {user.name} 나이: {user.age}
+          </li>
         ))}
       </ul>
     </Card>
