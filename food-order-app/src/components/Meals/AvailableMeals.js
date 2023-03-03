@@ -1,38 +1,55 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import MealItem from "./MealItem/MealItem";
 import Card from "../UI/Card";
 import classes from "./AvailableMeals.module.css";
 
-const DUMMY_MEALS = [
-  {
-    id: "m1",
-    name: "초밥",
-    description: "맛있는 초밥",
-    price: 18000,
-  },
-  {
-    id: "m2",
-    name: "프레즐",
-    description: "크림치즈가 듬뿍 프레즐!",
-    price: 5000,
-  },
-  {
-    id: "m3",
-    name: "바게트 버거",
-    description: "본고장의 맛!",
-    price: 12000,
-  },
-  {
-    id: "m4",
-    name: "샐러드",
-    description: "건강식!!",
-    price: 8500,
-  },
-];
-
 function AvailableMeals() {
-  const mealsList = DUMMY_MEALS.map(cur => (
+  const [meals, setMeals] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null);
+  useEffect(() => {
+    const fetchMeals = async () => {
+      setIsLoading(true);
+      const res = await fetch(process.env.REACT_APP_END_POINT);
+      if (!res.ok) {
+        throw new Error("뭔가가 잘못되었습니다.");
+      }
+      const data = await res.json();
+
+      const loadedMeals = [];
+      for (const key in data) {
+        loadedMeals.push({
+          id: key,
+          name: data[key].name,
+          description: data[key].description,
+          price: data[key].price,
+        });
+      }
+      setMeals(loadedMeals);
+      setIsLoading(false);
+    };
+    fetchMeals().catch(e => {
+      setIsLoading(false);
+      setError(e.message);
+    });
+  }, []);
+
+  if (isLoading) {
+    return (
+      <section className={classes.MealsLoading}>
+        <p>로딩중</p>
+      </section>
+    );
+  }
+  if (error) {
+    return (
+      <section className={classes.MealsError}>
+        <p>{error}</p>
+      </section>
+    );
+  }
+  const mealsList = meals.map(cur => (
     <MealItem
       id={cur.id}
       key={cur.id}
