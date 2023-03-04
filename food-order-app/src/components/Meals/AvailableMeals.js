@@ -11,7 +11,7 @@ function AvailableMeals() {
   useEffect(() => {
     const fetchMeals = async () => {
       setIsLoading(true);
-      const res = await fetch(process.env.REACT_APP_END_POINT);
+      const res = await fetch(process.env.REACT_APP_END_POINT + "/meals.json");
       if (!res.ok) {
         throw new Error("뭔가가 잘못되었습니다.");
       }
