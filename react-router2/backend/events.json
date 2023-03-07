@@ -1,11 +1,1 @@
-{
-  "events": [
-    {
-      "id": "e1",
-      "title": "A dummy event",
-      "date": "2023-02-22",
-      "image": "https://blog.hubspot.de/hubfs/Germany/Blog_images/Optimize_Marketing%20Events%20DACH%202021.jpg",
-      "description": "Join this amazing event and connect with fellow developers."
-    }
-  ]
-}
+{"events":[{"title":"새 이벤트","image":"https://cdn.pixabay.com/photo/2022/11/21/16/07/sunset-7607500_960_720.jpg","date":"2023-03-08","description":"얍!","id":"473855ef-0b04-4fbf-864f-29c722732e4d"},{"title":"오타 습관고치지","image":"https://cdn.pixabay.com/photo/2022/11/21/16/07/sunset-7607500_960_720.jpg","date":"2023-03-07","description":"제발 오타좀 ㅠㅜ","id":"4b24910a-6e5e-4040-bc63-577eb9deec93"},{"title":"뭐지","image":"https://cdn.pixabay.com/photo/2014/12/16/22/25/woman-570883_960_720.jpg","date":"2023-03-07","description":"왜 오류나지 수정","id":"49a1fbcc-cd25-4994-972f-1be0483d7e42"},{"title":"도전!","image":"https://cdn.pixabay.com/photo/2022/11/21/16/07/sunset-7607500_960_720.jpg","date":"2023-03-07","description":"얍!","id":"1b51bbc8-dce4-4038-a82d-b3f0830b0a53"},{"title":"얍","image":"https://cdn.pixabay.com/photo/2014/12/16/22/25/woman-570883_960_720.jpg","date":"2023-03-07","description":"얍!","id":"ee2c8166-c44e-4ea5-ba1c-1a39aa7c9288"},{"title":"어 왜 저장됨..?","image":"https://cdn.pixabay.com/photo/2022/11/21/16/07/sunset-7607500_960_720.jpg","date":"2023-03-07","description":"에러인데 저장됨..?","id":"fbaa1f44-9871-4ddd-b20d-04ff4300c8c2"},{"id":"e1","title":"A dummy event","date":"2023-02-22","image":"https://blog.hubspot.de/hubfs/Germany/Blog_images/Optimize_Marketing%20Events%20DACH%202021.jpg","description":"Join this amazing event and connect with fellow developers."}]}
