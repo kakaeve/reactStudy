@@ -21,14 +21,13 @@ function MeetupDetails(props) {
 }
 
 export async function getStaticPaths() {
-  console.log(process.env.NEXT_MONGODB_URL);
   const client = await MongoClient.connect(process.env.NEXT_PUBLIC_MONGODB_URL);
   const db = client.db();
   const meetupsCollection = db.collection("meetups");
   const meetups = await meetupsCollection.find({}, { _id: 1 }).toArray();
   client.close();
   return {
-    fallback: false,
+    fallback: "blocking",
     paths: meetups.map(meetup => ({
       params: { meetupId: meetup._id.toString() },
     })),
